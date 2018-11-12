@@ -1446,7 +1446,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                                       return InitError(strError);
                               }
 
-              uiInterface.InitMessage(_("Verifying blocks..."));
 
 
                 uiInterface.InitMessage(_("Verifying blocks..."));

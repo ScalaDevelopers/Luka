@@ -179,13 +179,6 @@ void Bip38ToolDialog::on_pasteButton_DEC_clicked()
     ui->encryptedKeyIn_DEC->setText(QApplication::clipboard()->text());
 }
 //dJAX update code for #537 issues End
-
-void Bip38ToolDialog::on_pasteButton_DEC_clicked()
-{
-    // Paste text from clipboard into recipient field
-    ui->encryptedKeyIn_DEC->setText(QApplication::clipboard()->text());
-}
-
 void Bip38ToolDialog::on_decryptKeyButton_DEC_clicked()
 {
     string strPassphrase = ui->passphraseIn_DEC->text().toStdString();

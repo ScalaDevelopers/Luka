@@ -323,14 +323,22 @@ bool CZerocoinDB::EraseCoinMint(const CBigNum& bnPubcoin)
     return Erase(make_pair('m', hash));
 }
 
-bool CZerocoinDB::WriteCoinSpend(const CBigNum& bnSerial, const uint256& txHash)
-{
-    CDataStream ss(SER_GETHASH, 0);
-    ss << bnSerial;
-    uint256 hash = Hash(ss.begin(), ss.end());
+ bool CZerocoinDB::WriteCoinSpendBatch(const std::vector<std::pair<libzerocoin::CoinSpend, uint256> >& spendInfo)
+ {
+     CLevelDBBatch batch;
+         size_t count = 0;
+         for (std::vector<std::pair<libzerocoin::CoinSpend, uint256> >::const_iterator it=spendInfo.begin(); it != spendInfo.end(); it++) {
+             CBigNum bnSerial = it->first.getCoinSerialNumber();
+             CDataStream ss(SER_GETHASH, 0);
+             ss << bnSerial;
+             uint256 hash = Hash(ss.begin(), ss.end());
+             batch.Write(make_pair('s', hash), it->second);
+             ++count;
+         }
 
-    return Write(make_pair('s', hash), txHash, true);
-}
+         LogPrint("zero", "Writing %u coin spends to db.\n", (unsigned int)count);
+         return WriteBatch(batch, true);
+ }
 
 bool CZerocoinDB::ReadCoinSpend(const CBigNum& bnSerial, uint256& txHash)
 {
