@@ -59,6 +59,11 @@ inline int set_error(bitcoinconsensus_error* ret, bitcoinconsensus_error serror)
         *ret = serror;
     return 0;
 }
+struct ECCryptoClosure
+{
+    ECCVerifyHandle handle;
+};
+ECCryptoClosure instance_of_eccryptoclosure;
 
 } // anon namespace
 

@@ -115,7 +115,7 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
     mv build/out/syndicate-*.tar.gz build/out/syndicate-*.dmg ../
 
     ./bin/gbuild --memory 3000 --commit syndicate=v${VERSION} ../syndicate/contrib/gitian-descriptors/gitian-aarch64.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../syndicate/contrib/gitian-descriptors/gitian-aarch64.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../syndicate/contrib/gitian-descriptors/gitian-aarch64.yml
     mv build/out/syndicate-*.tar.gz build/out/src/syndicate-*.tar.gz ../
     popd
 

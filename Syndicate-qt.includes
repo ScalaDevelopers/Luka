@@ -13,7 +13,6 @@ src/libzerocoin
 src/obj
 src/primitives
 src/qt
-src/qt/forms
 src/qt/test
 src/script
 src/secp256k1/include

@@ -282,6 +282,8 @@ void Shutdown()
     delete pwalletMain;
     pwalletMain = NULL;
 #endif
+    globalVerifyHandle.reset();
+        ECC_Stop();
     LogPrintf("%s: done\n", __func__);
 }
 
@@ -522,7 +524,7 @@ std::string HelpMessage(HelpMessageMode mode)
 
 //    strUsage += HelpMessageGroup(_("Zerocoin options:"));
 //    strUsage += HelpMessageOpt("-enablezeromint=<n>", strprintf(_("Enable automatic Zerocoin minting (0-1, default: %u)"), 1));
-//    strUsage += HelpMessageOpt("-zeromintpercentage=<n>", strprintf(_("Percentage of automatically minted Zerocoin  (10-100, default: %u)"), 10));
+//    strUsage += HelpMessageOpt("-zeromintpercentage=<n>", strprintf(_("Percentage of automatically minted Zerocoin  (1-100, default: %u)"), 10));
 //    strUsage += HelpMessageOpt("-preferredDenom=<n>", strprintf(_("Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)"), 0));
 //    strUsage += HelpMessageOpt("-backupzsynx=<n>", strprintf(_("Enable automatic wallet backups triggered after each zPiv minting (0-1, default: %u)"), 1));
 
@@ -675,8 +677,7 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 bool InitSanityCheck(void)
 {
     if (!ECC_InitSanityCheck()) {
-        InitError("OpenSSL appears to lack support for elliptic curve cryptography. For more "
-                  "information, visit https://en.bitcoin.it/wiki/OpenSSL_and_EC_Libraries");
+                 InitError("Elliptic curve cryptography sanity check failure. Aborting.");
         return false;
     }
     if (!glibc_sanity_test() || !glibcxx_sanity_test())
@@ -968,6 +969,9 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         nLocalServices |= NODE_BLOOM;
 
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
+    // Initialize elliptic curve code
+      ECC_Start();
+      globalVerifyHandle.reset(new ECCVerifyHandle());
 
     // Sanity check
     if (!InitSanityCheck())
@@ -1766,7 +1770,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     nZeromintPercentage = GetArg("-zeromintpercentage", 10);
     if (nZeromintPercentage > 100) nZeromintPercentage = 100;
-    if (nZeromintPercentage < 10) nZeromintPercentage = 10;
+    if (nZeromintPercentage < 1) nZeromintPercentage = 1;
 
     nPreferredDenom  = GetArg("-preferredDenom", 0);
     if (nPreferredDenom != 0 && nPreferredDenom != 1 && nPreferredDenom != 5 && nPreferredDenom != 10 && nPreferredDenom != 50 &&

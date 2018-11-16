@@ -566,8 +566,8 @@ bool ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue, CW
             if (pwallet->nMasterKeyMaxID < nID)
                 pwallet->nMasterKeyMaxID = nID;
         } else if (strType == "ckey") {
-            vector<unsigned char> vchPubKey;
-            ssKey >> vchPubKey;
+           CPubKey vchPubKey;
+           ssKey >> vchPubKey;
             vector<unsigned char> vchPrivKey;
             ssValue >> vchPrivKey;
             wss.nCKeys++;

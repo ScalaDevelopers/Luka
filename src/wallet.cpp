@@ -939,6 +939,7 @@ int64_t CWalletTx::GetTxTime() const
 
 int64_t CWalletTx::GetComputedTxTime() const
 {
+    LOCK(cs_main);
     if (IsZerocoinSpend() || IsZerocoinMint()) {
         if (IsInMainChain())
             return mapBlockIndex.at(hashBlock)->GetBlockTime();
@@ -1040,6 +1041,7 @@ CAmount CWalletTx::GetCredit(const isminefilter& filter) const
 
 CAmount CWalletTx::GetImmatureCredit(bool fUseCache) const
 {
+         LOCK(cs_main);
     if ((IsCoinBase() || IsCoinStake()) && GetBlocksToMaturity() > 0 && IsInMainChain()) {
         if (fUseCache && fImmatureCreditCached)
             return nImmatureCreditCached;
@@ -1253,6 +1255,7 @@ CAmount CWalletTx::GetDenominatedCredit(bool unconfirmed, bool fUseCache) const
 
 CAmount CWalletTx::GetImmatureWatchOnlyCredit(const bool& fUseCache) const
 {
+         LOCK(cs_main);
     if (IsCoinBase() && GetBlocksToMaturity() > 0 && IsInMainChain()) {
         if (fUseCache && fImmatureWatchCreditCached)
             return nImmatureWatchCreditCached;
@@ -1488,6 +1491,7 @@ bool CWalletTx::InMempool() const
 
 void CWalletTx::RelayWalletTransaction(std::string strCommand)
 {
+         LOCK(cs_main);
     if (!IsCoinBase()) {
         if (GetDepthInMainChain() == 0) {
             uint256 hash = GetHash();
@@ -2056,6 +2060,7 @@ bool less_then_denom(const COutput& out1, const COutput& out2)
 
 bool CWallet::SelectStakeCoins(std::set<std::pair<const CWalletTx*, unsigned int> >& setCoins, CAmount nTargetAmount) const
 {
+         LOCK(cs_main);
     vector<COutput> vCoins;
     AvailableCoins(vCoins, true, NULL, false, STAKABLE_COINS);
     CAmount nAmountSelected = 0;
@@ -2090,6 +2095,7 @@ bool CWallet::SelectStakeCoins(std::set<std::pair<const CWalletTx*, unsigned int
 
 bool CWallet::MintableCoins()
 {
+         LOCK(cs_main);
     CAmount nBalance = GetBalance();
     if (mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
         return error("MintableCoins() : invalid reserve balance amount");
@@ -4008,6 +4014,7 @@ void CWallet::AutoZeromint()
 
 void CWallet::AutoCombineDust()
 {
+         LOCK2(cs_main, cs_wallet);
     if (chainActive.Tip()->nTime < (GetAdjustedTime() - 300) || IsLocked()) {
         return;
     }
@@ -4099,6 +4106,7 @@ void CWallet::AutoCombineDust()
 
 bool CWallet::MultiSend()
 {
+         LOCK2(cs_main, cs_wallet);
     // Stop the old blocks from sending multisends
     if (chainActive.Tip()->nTime < (GetAdjustedTime() - 300) || IsLocked()) {
         return false;
@@ -4306,6 +4314,7 @@ int CMerkleTx::GetDepthInMainChain(const CBlockIndex*& pindexRet, bool enableIX)
 
 int CMerkleTx::GetBlocksToMaturity() const
 {
+         LOCK(cs_main);
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
     return max(0, (Params().COINBASE_MATURITY() + 1) - GetDepthInMainChain());
@@ -4680,7 +4689,12 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
             CScript scriptZerocoinSpend;
             CScript scriptChange;
             CAmount nChange = nValueSelected - nValue;
-            if (nChange && !address) {
+
+            if (nChange < 0) {
+                receipt.SetStatus(_("Selected coins value is less than payment target"), nStatus);
+                return false;
+            }
+            if (nChange > 0 && !address) {
                 receipt.SetStatus(_("Need address because change is not exact"), nStatus);
                 return false;
             }

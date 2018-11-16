@@ -234,7 +234,8 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/syndicate-config.h.in \
 	$(top_srcdir)/src/test/buildenv.py.in COPYING INSTALL \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
+	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
+	build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -319,7 +320,7 @@ COMPARISON_TOOL_REORG_TESTS = 0
 COPYRIGHT_YEAR = 2018
 CPP = gcc -E
 CPPFILT = /usr/bin/c++filt
-CPPFLAGS = -I/usr/local/opt/openssl/include -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -I/usr/local/opt/berkeley-db@4/include -DMAC_OSX -DHAVE_QT5
+CPPFLAGS = -I/usr/local/opt/openssl/include -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -isystem /opt/local/include -I/usr/local/opt/berkeley-db@4/include -DMAC_OSX -DHAVE_QT5
 CRYPTO_CFLAGS = -I/usr/local/Cellar/openssl/1.0.2p/include
 CRYPTO_LIBS = -L/usr/local/Cellar/openssl/1.0.2p/lib -lcrypto
 CXX = g++ -std=c++11
@@ -369,7 +370,7 @@ LEVELDB_TARGET_FLAGS = TARGET_OS=Darwin
 LIBLEVELDB = 
 LIBMEMENV = 
 LIBOBJS = 
-LIBS = -lcrypto  -L/usr/local/opt/berkeley-db@4/lib
+LIBS = -lcrypto  -L/opt/local/lib -L/usr/local/opt/berkeley-db@4/lib
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_APP_LDFLAGS = 
 LIPO = lipo
@@ -410,7 +411,7 @@ PIE_FLAGS = -fPIC
 PKG_CONFIG = /usr/local/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:
-PORT = 
+PORT = port
 PROTOBUF_CFLAGS = -Qunused-arguments -pthread -I/usr/local/Cellar/protobuf/3.6.1/include
 PROTOBUF_LIBS = -L/usr/local/Cellar/protobuf/3.6.1/lib -lprotobuf -Qunused-arguments -pthread
 PROTOC = /usr/local/bin/protoc

@@ -113,14 +113,13 @@ am__append_5 = syndicate-cli syndicate-tx
 #am__append_8 = syndicate-cli-res.rc
 #am__append_9 = syndicate-tx-res.rc
 ##am__append_10 = compat/glibc_compat.cpp
-##am__append_11 = secp256k1/libsecp256k1.la
 
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
-am__append_12 = test/test_syndicate test/bitcoin-util-test.py
-am__append_13 = test/test_syndicate
-am__append_14 = \
+am__append_11 = test/test_syndicate test/bitcoin-util-test.py
+am__append_12 = test/test_syndicate
+am__append_13 = \
 	test/bctest.py \
 	test/bitcoin-util-test.py \
 	test/data/bitcoin-util-test.json \
@@ -133,18 +132,18 @@ am__append_14 = \
 	test/data/txcreate2.hex \
 	test/data/txcreatesign.hex
 
-am__append_15 = \
+am__append_14 = \
   test/accounting_tests.cpp \
   test/wallet_tests.cpp \
   test/rpc_wallet_tests.cpp
 
-am__append_16 = $(LIBBITCOIN_WALLET)
-am__append_17 = $(ZMQ_LIBS)
-am__append_18 = $(CLEAN_BITCOIN_TEST)
-am__append_19 = qt/syndicate-qt
-am__append_20 = qt/libbitcoinqt.a
-#am__append_21 = qt/winshutdownmonitor.cpp
-am__append_22 = \
+am__append_15 = $(LIBBITCOIN_WALLET)
+am__append_16 = $(ZMQ_LIBS)
+am__append_17 = $(CLEAN_BITCOIN_TEST)
+am__append_18 = qt/syndicate-qt
+am__append_19 = qt/libbitcoinqt.a
+#am__append_20 = qt/winshutdownmonitor.cpp
+am__append_21 = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -180,24 +179,24 @@ am__append_22 = \
   qt/walletview.cpp \
   qt/zpivcontroldialog.cpp
 
-am__append_23 = $(BITCOIN_MM)
-#am__append_24 = $(BITCOIN_RC)
-am__append_25 = $(LIBBITCOIN_WALLET)
-am__append_26 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
-am__append_27 = $(CLEAN_QT)
+am__append_22 = $(BITCOIN_MM)
+#am__append_23 = $(BITCOIN_RC)
+am__append_24 = $(LIBBITCOIN_WALLET)
+am__append_25 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+am__append_26 = $(CLEAN_QT)
 
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
+am__append_27 = qt/test/test_syndicate-qt
 am__append_28 = qt/test/test_syndicate-qt
-am__append_29 = qt/test/test_syndicate-qt
-am__append_30 = qt/test/moc_paymentservertests.cpp
-am__append_31 = \
+am__append_29 = qt/test/moc_paymentservertests.cpp
+am__append_30 = \
   qt/test/paymentservertests.cpp
 
-am__append_32 = $(LIBBITCOIN_WALLET)
-am__append_33 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
-am__append_34 = $(CLEAN_BITCOIN_QT_TEST)
+am__append_31 = $(LIBBITCOIN_WALLET)
+am__append_32 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+am__append_33 = $(CLEAN_BITCOIN_QT_TEST)
 subdir = src
 SUBDIRS =
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -323,8 +322,6 @@ am_libbitcoin_common_a_OBJECTS =  \
 	primitives/libbitcoin_common_a-zerocoin.$(OBJEXT) \
 	libbitcoin_common_a-core_read.$(OBJEXT) \
 	libbitcoin_common_a-core_write.$(OBJEXT) \
-	libbitcoin_common_a-eccryptoverify.$(OBJEXT) \
-	libbitcoin_common_a-ecwrapper.$(OBJEXT) \
 	libbitcoin_common_a-hash.$(OBJEXT) \
 	libbitcoin_common_a-key.$(OBJEXT) \
 	libbitcoin_common_a-keystore.$(OBJEXT) \
@@ -391,21 +388,20 @@ am__libbitcoin_util_a_SOURCES_DIST = allocators.cpp compat/strnlen.cpp \
 	primitives/block.h primitives/transaction.h \
 	primitives/zerocoin.h core_io.h crypter.h \
 	denomination_functions.h obfuscation.h obfuscation-relay.h \
-	db.h eccryptoverify.h ecwrapper.h hash.h httprpc.h \
-	httpserver.h init.h kernel.h swifttx.h key.h keystore.h \
-	leveldbwrapper.h limitedmap.h main.h masternode.h \
-	masternode-payments.h masternode-budget.h masternode-sync.h \
-	masternodeman.h masternodeconfig.h merkleblock.h miner.h \
-	mruset.h netbase.h net.h noui.h pow.h protocol.h pubkey.h \
-	random.h reverselock.h reverse_iterate.h rpcclient.h \
-	rpcprotocol.h rpcserver.h scheduler.h script/interpreter.h \
-	script/script.h script/sigcache.h script/sign.h \
-	script/standard.h script/script_error.h serialize.h spork.h \
-	sporkdb.h streams.h sync.h threadsafety.h timedata.h \
-	tinyformat.h torcontrol.h txdb.h txmempool.h ui_interface.h \
-	uint256.h undo.h util.h utilstrencodings.h utilmoneystr.h \
-	utiltime.h validationinterface.h version.h wallet.h \
-	wallet_ismine.h walletdb.h zmq/zmqabstractnotifier.h \
+	db.h hash.h httprpc.h httpserver.h init.h kernel.h swifttx.h \
+	key.h keystore.h leveldbwrapper.h limitedmap.h main.h \
+	masternode.h masternode-payments.h masternode-budget.h \
+	masternode-sync.h masternodeman.h masternodeconfig.h \
+	merkleblock.h miner.h mruset.h netbase.h net.h noui.h pow.h \
+	protocol.h pubkey.h random.h reverselock.h reverse_iterate.h \
+	rpcclient.h rpcprotocol.h rpcserver.h scheduler.h \
+	script/interpreter.h script/script.h script/sigcache.h \
+	script/sign.h script/standard.h script/script_error.h \
+	serialize.h spork.h sporkdb.h streams.h sync.h threadsafety.h \
+	timedata.h tinyformat.h torcontrol.h txdb.h txmempool.h \
+	ui_interface.h uint256.h undo.h util.h utilstrencodings.h \
+	utilmoneystr.h utiltime.h validationinterface.h version.h \
+	wallet.h wallet_ismine.h walletdb.h zmq/zmqabstractnotifier.h \
 	zmq/zmqconfig.h zmq/zmqnotificationinterface.h \
 	zmq/zmqpublishnotifier.h compat/glibc_compat.cpp
 #am__objects_2 = compat/libbitcoin_util_a-glibc_compat.$(OBJEXT)
@@ -542,17 +538,18 @@ am__qt_libbitcoinqt_a_SOURCES_DIST = qt/bantablemodel.cpp \
 	qt/locale/syndicate_ca.ts qt/locale/syndicate_cs.ts \
 	qt/locale/syndicate_da.ts qt/locale/syndicate_de.ts \
 	qt/locale/syndicate_en.ts qt/locale/syndicate_en_US.ts \
-	qt/locale/syndicate_es.ts qt/locale/syndicate_fi.ts \
-	qt/locale/syndicate_fr_FR.ts qt/locale/syndicate_it.ts \
-	qt/locale/syndicate_ja.ts qt/locale/syndicate_ko_KR.ts \
-	qt/locale/syndicate_nl.ts qt/locale/syndicate_pl.ts \
-	qt/locale/syndicate_pt.ts qt/locale/syndicate_pt_BR.ts \
-	qt/locale/syndicate_ro_RO.ts qt/locale/syndicate_ru.ts \
-	qt/locale/syndicate_sk.ts qt/locale/syndicate_sv.ts \
-	qt/locale/syndicate_tr.ts qt/locale/syndicate_uk.ts \
-	qt/locale/syndicate_zh_CN.ts qt/locale/syndicate_zh_TW.ts \
-	qt/paymentrequest.proto qt/res/icons/add.png \
-	qt/res/icons/address-book.png qt/res/icons/automint_active.png \
+	qt/locale/syndicate_eo.ts qt/locale/syndicate_es.ts \
+	qt/locale/syndicate_fi.ts qt/locale/syndicate_fr_FR.ts \
+	qt/locale/syndicate_it.ts qt/locale/syndicate_ja.ts \
+	qt/locale/syndicate_ko_KR.ts qt/locale/syndicate_nl.ts \
+	qt/locale/syndicate_pl.ts qt/locale/syndicate_pt.ts \
+	qt/locale/syndicate_pt_BR.ts qt/locale/syndicate_ro_RO.ts \
+	qt/locale/syndicate_ru.ts qt/locale/syndicate_sk.ts \
+	qt/locale/syndicate_sv.ts qt/locale/syndicate_tr.ts \
+	qt/locale/syndicate_uk.ts qt/locale/syndicate_zh_CN.ts \
+	qt/locale/syndicate_zh_TW.ts qt/paymentrequest.proto \
+	qt/res/icons/add.png qt/res/icons/address-book.png \
+	qt/res/icons/automint_active.png \
 	qt/res/icons/automint_inactive.png qt/res/icons/bitcoin.ico \
 	qt/res/icons/bitcoin.png qt/res/icons/bitcoin_testnet.ico \
 	qt/res/icons/bitcoin_testnet.png qt/res/icons/browse.png \
@@ -730,16 +727,15 @@ qt_libbitcoinqt_a_OBJECTS = $(am_qt_libbitcoinqt_a_OBJECTS) \
 	$(nodist_qt_libbitcoinqt_a_OBJECTS)
 am__DEPENDENCIES_1 =
 #libbitcoinconsensus_la_DEPENDENCIES =  \
-#	$(am__DEPENDENCIES_1) \
-#	$(am__DEPENDENCIES_1) \
-#	$(am__append_11)
+#	$(LIBSECP256K1) $(am__DEPENDENCIES_1) \
+#	secp256k1/libsecp256k1.la
 am__libbitcoinconsensus_la_SOURCES_DIST = allocators.cpp \
 	primitives/transaction.cpp crypto/hmac_sha512.cpp \
 	crypto/scrypt.cpp crypto/sha1.cpp crypto/sha256.cpp \
-	crypto/sha512.cpp crypto/ripemd160.cpp eccryptoverify.cpp \
-	ecwrapper.cpp hash.cpp pubkey.cpp script/script.cpp \
-	script/interpreter.cpp script/bitcoinconsensus.cpp uint256.cpp \
-	utilstrencodings.cpp compat/glibc_compat.cpp
+	crypto/sha512.cpp crypto/ripemd160.cpp hash.cpp pubkey.cpp \
+	script/script.cpp script/interpreter.cpp \
+	script/bitcoinconsensus.cpp uint256.cpp utilstrencodings.cpp \
+	compat/glibc_compat.cpp
 ##am__objects_10 = compat/libbitcoinconsensus_la-glibc_compat.lo
 #am_libbitcoinconsensus_la_OBJECTS =  \
 #	libbitcoinconsensus_la-allocators.lo \
@@ -750,8 +746,6 @@ am__libbitcoinconsensus_la_SOURCES_DIST = allocators.cpp \
 #	crypto/libbitcoinconsensus_la-sha256.lo \
 #	crypto/libbitcoinconsensus_la-sha512.lo \
 #	crypto/libbitcoinconsensus_la-ripemd160.lo \
-#	libbitcoinconsensus_la-eccryptoverify.lo \
-#	libbitcoinconsensus_la-ecwrapper.lo \
 #	libbitcoinconsensus_la-hash.lo \
 #	libbitcoinconsensus_la-pubkey.lo \
 #	script/libbitcoinconsensus_la-script.lo \
@@ -794,7 +788,7 @@ am__DEPENDENCIES_3 = univalue/libunivalue.la
 am__DEPENDENCIES_4 = $(am__append_2)
 am__DEPENDENCIES_5 = $(am__append_3)
 qt_syndicate_qt_DEPENDENCIES = qt/libbitcoinqt.a \
-	$(LIBBITCOIN_SERVER) $(am__append_25) \
+	$(LIBBITCOIN_SERVER) $(am__append_24) \
 	$(am__DEPENDENCIES_2) $(LIBBITCOIN_CLI) \
 	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
 	$(LIBBITCOIN_CRYPTO) $(am__DEPENDENCIES_3) \
@@ -831,7 +825,7 @@ am__DEPENDENCIES_6 =  \
 	$(am__DEPENDENCIES_1)
 qt_test_test_syndicate_qt_DEPENDENCIES =  \
 	$(LIBBITCOINQT) $(LIBBITCOIN_SERVER) \
-	$(am__append_32) $(am__DEPENDENCIES_6) \
+	$(am__append_31) $(am__DEPENDENCIES_6) \
 	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
 	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
 	$(am__DEPENDENCIES_3) \
@@ -903,26 +897,26 @@ am__test_test_syndicate_SOURCES_DIST =  \
 	test/benchmark_zerocoin.cpp test/tutorial_zerocoin.cpp \
 	test/libzerocoin_tests.cpp test/allocator_tests.cpp \
 	test/base32_tests.cpp test/base58_tests.cpp \
-	test/base64_tests.cpp test/checkblock_tests.cpp \
-	test/Checkpoints_tests.cpp test/coins_tests.cpp \
-	test/compress_tests.cpp test/crypto_tests.cpp \
-	test/DoS_tests.cpp test/getarg_tests.cpp test/hash_tests.cpp \
-	test/key_tests.cpp test/main_tests.cpp test/mempool_tests.cpp \
-	test/mruset_tests.cpp test/multisig_tests.cpp \
-	test/netbase_tests.cpp test/pmt_tests.cpp \
-	test/reverselock_tests.cpp test/rpc_tests.cpp \
-	test/sanity_tests.cpp test/scheduler_tests.cpp \
-	test/script_P2SH_tests.cpp test/script_tests.cpp \
-	test/scriptnum_tests.cpp test/serialize_tests.cpp \
-	test/sighash_tests.cpp test/sigopcount_tests.cpp \
-	test/skiplist_tests.cpp test/test_syndicate.cpp \
-	test/timedata_tests.cpp test/torcontrol_tests.cpp \
-	test/transaction_tests.cpp test/uint256_tests.cpp \
-	test/univalue_tests.cpp test/util_tests.cpp \
-	test/accounting_tests.cpp test/wallet_tests.cpp \
-	test/rpc_wallet_tests.cpp test/data/script_valid.json \
-	test/data/base58_keys_valid.json test/data/sig_canonical.json \
-	test/data/sig_noncanonical.json \
+	test/base64_tests.cpp test/budget_tests.cpp \
+	test/checkblock_tests.cpp test/Checkpoints_tests.cpp \
+	test/coins_tests.cpp test/compress_tests.cpp \
+	test/crypto_tests.cpp test/DoS_tests.cpp test/getarg_tests.cpp \
+	test/hash_tests.cpp test/key_tests.cpp test/main_tests.cpp \
+	test/mempool_tests.cpp test/mruset_tests.cpp \
+	test/multisig_tests.cpp test/netbase_tests.cpp \
+	test/pmt_tests.cpp test/reverselock_tests.cpp \
+	test/rpc_tests.cpp test/sanity_tests.cpp \
+	test/scheduler_tests.cpp test/script_P2SH_tests.cpp \
+	test/script_tests.cpp test/scriptnum_tests.cpp \
+	test/serialize_tests.cpp test/sighash_tests.cpp \
+	test/sigopcount_tests.cpp test/skiplist_tests.cpp \
+	test/test_syndicate.cpp test/timedata_tests.cpp \
+	test/torcontrol_tests.cpp test/transaction_tests.cpp \
+	test/uint256_tests.cpp test/univalue_tests.cpp \
+	test/util_tests.cpp test/accounting_tests.cpp \
+	test/wallet_tests.cpp test/rpc_wallet_tests.cpp \
+	test/data/script_valid.json test/data/base58_keys_valid.json \
+	test/data/sig_canonical.json test/data/sig_noncanonical.json \
 	test/data/base58_encode_decode.json \
 	test/data/base58_keys_invalid.json \
 	test/data/script_invalid.json test/data/tx_invalid.json \
@@ -941,6 +935,7 @@ am__objects_22 = test/test_syndicate-zerocoin_implementation_tests.$(OBJEXT) \
 	test/test_syndicate-base32_tests.$(OBJEXT) \
 	test/test_syndicate-base58_tests.$(OBJEXT) \
 	test/test_syndicate-base64_tests.$(OBJEXT) \
+	test/test_syndicate-budget_tests.$(OBJEXT) \
 	test/test_syndicate-checkblock_tests.$(OBJEXT) \
 	test/test_syndicate-Checkpoints_tests.$(OBJEXT) \
 	test/test_syndicate-coins_tests.$(OBJEXT) \
@@ -992,7 +987,7 @@ test_test_syndicate_DEPENDENCIES =  \
 	$(am__DEPENDENCIES_4) $(am__DEPENDENCIES_5) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(LIBSECP256K1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__append_16) \
+	$(am__DEPENDENCIES_1) $(am__append_15) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_7)
@@ -1027,8 +1022,6 @@ am__depfiles_remade = ./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po \
 	./$(DEPDIR)/libbitcoin_common_a-compressor.Po \
 	./$(DEPDIR)/libbitcoin_common_a-core_read.Po \
 	./$(DEPDIR)/libbitcoin_common_a-core_write.Po \
-	./$(DEPDIR)/libbitcoin_common_a-eccryptoverify.Po \
-	./$(DEPDIR)/libbitcoin_common_a-ecwrapper.Po \
 	./$(DEPDIR)/libbitcoin_common_a-hash.Po \
 	./$(DEPDIR)/libbitcoin_common_a-key.Po \
 	./$(DEPDIR)/libbitcoin_common_a-keystore.Po \
@@ -1100,8 +1093,6 @@ am__depfiles_remade = ./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po \
 	./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo \
-	./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo \
-	./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo \
 	./$(DEPDIR)/libbitcoinconsensus_la-hash.Plo \
 	./$(DEPDIR)/libbitcoinconsensus_la-pubkey.Plo \
 	./$(DEPDIR)/libbitcoinconsensus_la-uint256.Plo \
@@ -1290,6 +1281,7 @@ am__depfiles_remade = ./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po \
 	test/$(DEPDIR)/test_syndicate-base58_tests.Po \
 	test/$(DEPDIR)/test_syndicate-base64_tests.Po \
 	test/$(DEPDIR)/test_syndicate-benchmark_zerocoin.Po \
+	test/$(DEPDIR)/test_syndicate-budget_tests.Po \
 	test/$(DEPDIR)/test_syndicate-checkblock_tests.Po \
 	test/$(DEPDIR)/test_syndicate-coins_tests.Po \
 	test/$(DEPDIR)/test_syndicate-compress_tests.Po \
@@ -1708,7 +1700,7 @@ COMPARISON_TOOL_REORG_TESTS = 0
 COPYRIGHT_YEAR = 2018
 CPP = gcc -E
 CPPFILT = /usr/bin/c++filt
-CPPFLAGS = -I/usr/local/opt/openssl/include -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -I/usr/local/opt/berkeley-db@4/include -DMAC_OSX -DHAVE_QT5
+CPPFLAGS = -I/usr/local/opt/openssl/include -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -isystem /opt/local/include -I/usr/local/opt/berkeley-db@4/include -DMAC_OSX -DHAVE_QT5
 CRYPTO_CFLAGS = -I/usr/local/Cellar/openssl/1.0.2p/include
 CRYPTO_LIBS = -L/usr/local/Cellar/openssl/1.0.2p/lib -lcrypto
 CXX = g++ -std=c++11
@@ -1758,7 +1750,7 @@ LEVELDB_TARGET_FLAGS = TARGET_OS=Darwin
 LIBLEVELDB =  $(am__append_2)
 LIBMEMENV =  $(am__append_3)
 LIBOBJS = 
-LIBS = -lcrypto  -L/usr/local/opt/berkeley-db@4/lib
+LIBS = -lcrypto  -L/opt/local/lib -L/usr/local/opt/berkeley-db@4/lib
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIBTOOL_APP_LDFLAGS = 
 LIPO = lipo
@@ -1799,7 +1791,7 @@ PIE_FLAGS = -fPIC
 PKG_CONFIG = /usr/local/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = /usr/local/opt/qt/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:
-PORT = 
+PORT = port
 PROTOBUF_CFLAGS = -Qunused-arguments -pthread -I/usr/local/Cellar/protobuf/3.6.1/include
 PROTOBUF_LIBS = -L/usr/local/Cellar/protobuf/3.6.1/lib -lprotobuf -Qunused-arguments -pthread
 PROTOC = /usr/local/bin/protoc
@@ -1924,7 +1916,7 @@ AM_CPPFLAGS = $(HARDENED_CPPFLAGS)
 EXTRA_LIBRARIES = $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UTIL) \
 	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_ZEROCOIN) \
 	$(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_WALLET) \
-	$(LIBBITCOIN_ZMQ) $(am__append_20)
+	$(LIBBITCOIN_ZMQ) $(am__append_19)
 #LIBUNIVALUE = $(UNIVALUE_LIBS)
 LIBUNIVALUE = univalue/libunivalue.la
 BITCOIN_CONFIG_INCLUDES = -I$(builddir)/config
@@ -1976,8 +1968,6 @@ BITCOIN_CORE_H = \
   obfuscation.h \
   obfuscation-relay.h \
   db.h \
-  eccryptoverify.h \
-  ecwrapper.h \
   hash.h \
   httprpc.h \
   httpserver.h \
@@ -2168,7 +2158,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
 
 
 # libzerocoin library
-libzerocoin_libbitcoin_zerocin_a_CPPFLAGS = $(AM_CPPFLAGS)
+libzerocoin_libbitcoin_zerocin_a_CPPFLAGS = $(AM_CPPFLAGS) $(BOOST_CPPFLAGS) 
 libzerocoin_libbitcoin_zerocin_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
   libzerocoin/Accumulator.h \
@@ -2211,8 +2201,6 @@ libbitcoin_common_a_SOURCES = \
   primitives/zerocoin.cpp \
   core_read.cpp \
   core_write.cpp \
-  eccryptoverify.cpp \
-  ecwrapper.cpp \
   hash.cpp \
   key.cpp \
   keystore.cpp \
@@ -2292,25 +2280,24 @@ syndicate_tx_LDADD = $(LIBUNIVALUE) $(LIBBITCOIN_COMMON) \
 #	crypto/hmac_sha512.cpp \
 #	crypto/scrypt.cpp crypto/sha1.cpp \
 #	crypto/sha256.cpp crypto/sha512.cpp \
-#	crypto/ripemd160.cpp \
-#	eccryptoverify.cpp ecwrapper.cpp \
-#	hash.cpp pubkey.cpp script/script.cpp \
+#	crypto/ripemd160.cpp hash.cpp \
+#	pubkey.cpp script/script.cpp \
 #	script/interpreter.cpp \
 #	script/bitcoinconsensus.cpp \
 #	uint256.cpp utilstrencodings.cpp \
 #	$(am__append_10)
 #libbitcoinconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
 #libbitcoinconsensus_la_LIBADD =  \
-#	$(CRYPTO_LIBS) $(BOOST_LIBS) \
-#	$(am__append_11)
-#libbitcoinconsensus_la_CPPFLAGS = $(CRYPTO_CFLAGS) -I$(builddir)/obj -DBUILD_BITCOIN_INTERNAL
+#	$(LIBSECP256K1) $(BOOST_LIBS) \
+#	secp256k1/libsecp256k1.la
+#libbitcoinconsensus_la_CPPFLAGS = -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
 CLEANFILES = $(EXTRA_LIBRARIES) leveldb/libleveldb.a \
 	leveldb/libmemenv.a *.gcda *.gcno compat/*.gcda compat/*.gcno \
 	crypto/*.gcda crypto/*.gcno primitives/*.gcda \
 	primitives/*.gcno script/*.gcda script/*.gcno univalue/*.gcda \
 	univalue/*.gcno zmq/*.gcda zmq/*.gcno obj/build.h \
-	$(am__append_18) $(am__append_27) $(am__append_34)
-EXTRA_DIST = leveldb $(am__append_14)
+	$(am__append_17) $(am__append_26) $(am__append_33)
+EXTRA_DIST = leveldb $(am__append_13)
 TEST_SRCDIR = test
 TEST_BINARY = test/test_syndicate$(EXEEXT)
 JSON_TEST_FILES = \
@@ -2338,7 +2325,7 @@ BITCOIN_TESTS =  \
 	test/libzerocoin_tests.cpp \
 	test/allocator_tests.cpp \
 	test/base32_tests.cpp test/base58_tests.cpp \
-	test/base64_tests.cpp \
+	test/base64_tests.cpp test/budget_tests.cpp \
 	test/checkblock_tests.cpp \
 	test/Checkpoints_tests.cpp \
 	test/coins_tests.cpp \
@@ -2366,7 +2353,7 @@ BITCOIN_TESTS =  \
 	test/transaction_tests.cpp \
 	test/uint256_tests.cpp \
 	test/univalue_tests.cpp test/util_tests.cpp \
-	$(am__append_15)
+	$(am__append_14)
 test_test_syndicate_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
 test_test_syndicate_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
 test_test_syndicate_LDADD = $(LIBBITCOIN_SERVER) \
@@ -2376,10 +2363,10 @@ test_test_syndicate_LDADD = $(LIBBITCOIN_SERVER) \
 	$(LIBLEVELDB) $(LIBMEMENV) $(BOOST_LIBS) \
 	$(BOOST_UNIT_TEST_FRAMEWORK_LIB) \
 	$(LIBSECP256K1) $(EVENT_LIBS) \
-	$(EVENT_PTHREADS_LIBS) $(am__append_16) \
+	$(EVENT_PTHREADS_LIBS) $(am__append_15) \
 	$(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) \
 	$(SSL_LIBS) $(CRYPTO_LIBS) \
-	$(MINIUPNPC_LIBS) $(am__append_17)
+	$(MINIUPNPC_LIBS) $(am__append_16)
 test_test_bitcoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 test_test_syndicate_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
 nodist_test_test_syndicate_SOURCES = $(GENERATED_TEST_FILES)
@@ -2394,6 +2381,7 @@ QT_TS = \
   qt/locale/syndicate_de.ts \
   qt/locale/syndicate_en.ts \
   qt/locale/syndicate_en_US.ts \
+  qt/locale/syndicate_eo.ts \
   qt/locale/syndicate_es.ts \
   qt/locale/syndicate_fi.ts \
   qt/locale/syndicate_fr_FR.ts \
@@ -2648,8 +2636,8 @@ BITCOIN_QT_CPP = qt/bantablemodel.cpp \
 	qt/platformstyle.cpp qt/qvalidatedlineedit.cpp \
 	qt/qvaluecombobox.cpp qt/rpcconsole.cpp \
 	qt/splashscreen.cpp qt/trafficgraphwidget.cpp \
-	qt/utilitydialog.cpp $(am__append_21) \
-	$(am__append_22)
+	qt/utilitydialog.cpp $(am__append_20) \
+	$(am__append_21)
 RES_IMAGES = \
   qt/res/images/about.png \
   qt/res/images/splash.png \
@@ -2696,10 +2684,10 @@ qt_syndicate_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLU
 qt_syndicate_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 qt_bitcoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 qt_syndicate_qt_SOURCES = qt/syndicate.cpp \
-	$(am__append_23) $(am__append_24)
+	$(am__append_22) $(am__append_23)
 qt_syndicate_qt_LDADD = qt/libbitcoinqt.a \
-	$(LIBBITCOIN_SERVER) $(am__append_25) \
-	$(am__append_26) $(LIBBITCOIN_CLI) \
+	$(LIBBITCOIN_SERVER) $(am__append_24) \
+	$(am__append_25) $(LIBBITCOIN_CLI) \
 	$(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) \
 	$(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) \
 	$(LIBBITCOIN_ZEROCOIN) $(LIBLEVELDB) \
@@ -2715,7 +2703,7 @@ qt_syndicate_qt_LIBTOOLFLAGS = --tag CXX
 QT_QM = $(QT_TS:.ts=.qm)
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_syndicate_locale.qrc
 TEST_QT_MOC_CPP = qt/test/moc_uritests.cpp \
-	$(am__append_30)
+	$(am__append_29)
 TEST_QT_H = \
   qt/test/uritests.h \
   qt/test/paymentrequestdata.h \
@@ -2727,11 +2715,11 @@ qt_test_test_syndicate_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOI
 qt_test_test_syndicate_qt_SOURCES =  \
 	qt/test/test_main.cpp \
 	qt/test/uritests.cpp $(TEST_QT_H) \
-	$(am__append_31)
+	$(am__append_30)
 nodist_qt_test_test_syndicate_qt_SOURCES = $(TEST_QT_MOC_CPP)
 qt_test_test_syndicate_qt_LDADD =  \
 	$(LIBBITCOINQT) $(LIBBITCOIN_SERVER) \
-	$(am__append_32) $(am__append_33) \
+	$(am__append_31) $(am__append_32) \
 	$(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) \
 	$(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) \
 	$(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
@@ -3380,6 +3368,8 @@ test/test_syndicate-base58_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_syndicate-base64_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
+test/test_syndicate-budget_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_syndicate-checkblock_tests.$(OBJEXT): test/$(am__dirstamp) \
 	test/$(DEPDIR)/$(am__dirstamp)
 test/test_syndicate-Checkpoints_tests.$(OBJEXT): test/$(am__dirstamp) \
@@ -3489,8 +3479,6 @@ include ./$(DEPDIR)/libbitcoin_common_a-coins.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_common_a-compressor.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_common_a-core_read.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_common_a-core_write.Po # am--include-marker
-include ./$(DEPDIR)/libbitcoin_common_a-eccryptoverify.Po # am--include-marker
-include ./$(DEPDIR)/libbitcoin_common_a-ecwrapper.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_common_a-hash.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_common_a-key.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_common_a-keystore.Po # am--include-marker
@@ -3562,8 +3550,6 @@ include ./$(DEPDIR)/libbitcoin_wallet_a-wallet.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po # am--include-marker
 include ./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo # am--include-marker
-include ./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo # am--include-marker
-include ./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo # am--include-marker
 include ./$(DEPDIR)/libbitcoinconsensus_la-hash.Plo # am--include-marker
 include ./$(DEPDIR)/libbitcoinconsensus_la-pubkey.Plo # am--include-marker
 include ./$(DEPDIR)/libbitcoinconsensus_la-uint256.Plo # am--include-marker
@@ -3752,6 +3738,7 @@ include test/$(DEPDIR)/test_syndicate-base32_tests.Po # am--include-marker
 include test/$(DEPDIR)/test_syndicate-base58_tests.Po # am--include-marker
 include test/$(DEPDIR)/test_syndicate-base64_tests.Po # am--include-marker
 include test/$(DEPDIR)/test_syndicate-benchmark_zerocoin.Po # am--include-marker
+include test/$(DEPDIR)/test_syndicate-budget_tests.Po # am--include-marker
 include test/$(DEPDIR)/test_syndicate-checkblock_tests.Po # am--include-marker
 include test/$(DEPDIR)/test_syndicate-coins_tests.Po # am--include-marker
 include test/$(DEPDIR)/test_syndicate-compress_tests.Po # am--include-marker
@@ -4337,34 +4324,6 @@ libbitcoin_common_a-core_write.obj: core_write.cpp
 #	$(AM_V_CXX)source='core_write.cpp' object='libbitcoin_common_a-core_write.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_common_a-core_write.obj `if test -f 'core_write.cpp'; then $(CYGPATH_W) 'core_write.cpp'; else $(CYGPATH_W) '$(srcdir)/core_write.cpp'; fi`
-
-libbitcoin_common_a-eccryptoverify.o: eccryptoverify.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_common_a-eccryptoverify.o -MD -MP -MF $(DEPDIR)/libbitcoin_common_a-eccryptoverify.Tpo -c -o libbitcoin_common_a-eccryptoverify.o `test -f 'eccryptoverify.cpp' || echo '$(srcdir)/'`eccryptoverify.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_common_a-eccryptoverify.Tpo $(DEPDIR)/libbitcoin_common_a-eccryptoverify.Po
-#	$(AM_V_CXX)source='eccryptoverify.cpp' object='libbitcoin_common_a-eccryptoverify.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_common_a-eccryptoverify.o `test -f 'eccryptoverify.cpp' || echo '$(srcdir)/'`eccryptoverify.cpp
-
-libbitcoin_common_a-eccryptoverify.obj: eccryptoverify.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_common_a-eccryptoverify.obj -MD -MP -MF $(DEPDIR)/libbitcoin_common_a-eccryptoverify.Tpo -c -o libbitcoin_common_a-eccryptoverify.obj `if test -f 'eccryptoverify.cpp'; then $(CYGPATH_W) 'eccryptoverify.cpp'; else $(CYGPATH_W) '$(srcdir)/eccryptoverify.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_common_a-eccryptoverify.Tpo $(DEPDIR)/libbitcoin_common_a-eccryptoverify.Po
-#	$(AM_V_CXX)source='eccryptoverify.cpp' object='libbitcoin_common_a-eccryptoverify.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_common_a-eccryptoverify.obj `if test -f 'eccryptoverify.cpp'; then $(CYGPATH_W) 'eccryptoverify.cpp'; else $(CYGPATH_W) '$(srcdir)/eccryptoverify.cpp'; fi`
-
-libbitcoin_common_a-ecwrapper.o: ecwrapper.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_common_a-ecwrapper.o -MD -MP -MF $(DEPDIR)/libbitcoin_common_a-ecwrapper.Tpo -c -o libbitcoin_common_a-ecwrapper.o `test -f 'ecwrapper.cpp' || echo '$(srcdir)/'`ecwrapper.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_common_a-ecwrapper.Tpo $(DEPDIR)/libbitcoin_common_a-ecwrapper.Po
-#	$(AM_V_CXX)source='ecwrapper.cpp' object='libbitcoin_common_a-ecwrapper.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_common_a-ecwrapper.o `test -f 'ecwrapper.cpp' || echo '$(srcdir)/'`ecwrapper.cpp
-
-libbitcoin_common_a-ecwrapper.obj: ecwrapper.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_common_a-ecwrapper.obj -MD -MP -MF $(DEPDIR)/libbitcoin_common_a-ecwrapper.Tpo -c -o libbitcoin_common_a-ecwrapper.obj `if test -f 'ecwrapper.cpp'; then $(CYGPATH_W) 'ecwrapper.cpp'; else $(CYGPATH_W) '$(srcdir)/ecwrapper.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_common_a-ecwrapper.Tpo $(DEPDIR)/libbitcoin_common_a-ecwrapper.Po
-#	$(AM_V_CXX)source='ecwrapper.cpp' object='libbitcoin_common_a-ecwrapper.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_common_a-ecwrapper.obj `if test -f 'ecwrapper.cpp'; then $(CYGPATH_W) 'ecwrapper.cpp'; else $(CYGPATH_W) '$(srcdir)/ecwrapper.cpp'; fi`
 
 libbitcoin_common_a-hash.o: hash.cpp
 	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_common_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_common_a_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_common_a-hash.o -MD -MP -MF $(DEPDIR)/libbitcoin_common_a-hash.Tpo -c -o libbitcoin_common_a-hash.o `test -f 'hash.cpp' || echo '$(srcdir)/'`hash.cpp
@@ -7152,20 +7111,6 @@ crypto/libbitcoinconsensus_la-ripemd160.lo: crypto/ripemd160.cpp
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o crypto/libbitcoinconsensus_la-ripemd160.lo `test -f 'crypto/ripemd160.cpp' || echo '$(srcdir)/'`crypto/ripemd160.cpp
 
-libbitcoinconsensus_la-eccryptoverify.lo: eccryptoverify.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoinconsensus_la-eccryptoverify.lo -MD -MP -MF $(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Tpo -c -o libbitcoinconsensus_la-eccryptoverify.lo `test -f 'eccryptoverify.cpp' || echo '$(srcdir)/'`eccryptoverify.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Tpo $(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo
-#	$(AM_V_CXX)source='eccryptoverify.cpp' object='libbitcoinconsensus_la-eccryptoverify.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoinconsensus_la-eccryptoverify.lo `test -f 'eccryptoverify.cpp' || echo '$(srcdir)/'`eccryptoverify.cpp
-
-libbitcoinconsensus_la-ecwrapper.lo: ecwrapper.cpp
-	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoinconsensus_la-ecwrapper.lo -MD -MP -MF $(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Tpo -c -o libbitcoinconsensus_la-ecwrapper.lo `test -f 'ecwrapper.cpp' || echo '$(srcdir)/'`ecwrapper.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Tpo $(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo
-#	$(AM_V_CXX)source='ecwrapper.cpp' object='libbitcoinconsensus_la-ecwrapper.lo' libtool=yes \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoinconsensus_la-ecwrapper.lo `test -f 'ecwrapper.cpp' || echo '$(srcdir)/'`ecwrapper.cpp
-
 libbitcoinconsensus_la-hash.lo: hash.cpp
 	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoinconsensus_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoinconsensus_la-hash.lo -MD -MP -MF $(DEPDIR)/libbitcoinconsensus_la-hash.Tpo -c -o libbitcoinconsensus_la-hash.lo `test -f 'hash.cpp' || echo '$(srcdir)/'`hash.cpp
 	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoinconsensus_la-hash.Tpo $(DEPDIR)/libbitcoinconsensus_la-hash.Plo
@@ -7487,6 +7432,20 @@ test/test_syndicate-base64_tests.obj: test/base64_tests.cpp
 #	$(AM_V_CXX)source='test/base64_tests.cpp' object='test/test_syndicate-base64_tests.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_syndicate_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test/test_syndicate-base64_tests.obj `if test -f 'test/base64_tests.cpp'; then $(CYGPATH_W) 'test/base64_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/test/base64_tests.cpp'; fi`
+
+test/test_syndicate-budget_tests.o: test/budget_tests.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_syndicate_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test/test_syndicate-budget_tests.o -MD -MP -MF test/$(DEPDIR)/test_syndicate-budget_tests.Tpo -c -o test/test_syndicate-budget_tests.o `test -f 'test/budget_tests.cpp' || echo '$(srcdir)/'`test/budget_tests.cpp
+	$(AM_V_at)$(am__mv) test/$(DEPDIR)/test_syndicate-budget_tests.Tpo test/$(DEPDIR)/test_syndicate-budget_tests.Po
+#	$(AM_V_CXX)source='test/budget_tests.cpp' object='test/test_syndicate-budget_tests.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_syndicate_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test/test_syndicate-budget_tests.o `test -f 'test/budget_tests.cpp' || echo '$(srcdir)/'`test/budget_tests.cpp
+
+test/test_syndicate-budget_tests.obj: test/budget_tests.cpp
+	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_syndicate_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test/test_syndicate-budget_tests.obj -MD -MP -MF test/$(DEPDIR)/test_syndicate-budget_tests.Tpo -c -o test/test_syndicate-budget_tests.obj `if test -f 'test/budget_tests.cpp'; then $(CYGPATH_W) 'test/budget_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/test/budget_tests.cpp'; fi`
+	$(AM_V_at)$(am__mv) test/$(DEPDIR)/test_syndicate-budget_tests.Tpo test/$(DEPDIR)/test_syndicate-budget_tests.Po
+#	$(AM_V_CXX)source='test/budget_tests.cpp' object='test/test_syndicate-budget_tests.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_syndicate_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test/test_syndicate-budget_tests.obj `if test -f 'test/budget_tests.cpp'; then $(CYGPATH_W) 'test/budget_tests.cpp'; else $(CYGPATH_W) '$(srcdir)/test/budget_tests.cpp'; fi`
 
 test/test_syndicate-checkblock_tests.o: test/checkblock_tests.cpp
 	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_test_syndicate_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test/test_syndicate-checkblock_tests.o -MD -MP -MF test/$(DEPDIR)/test_syndicate-checkblock_tests.Tpo -c -o test/test_syndicate-checkblock_tests.o `test -f 'test/checkblock_tests.cpp' || echo '$(srcdir)/'`test/checkblock_tests.cpp
@@ -8520,8 +8479,6 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-compressor.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-core_read.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-core_write.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_common_a-eccryptoverify.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_common_a-ecwrapper.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-hash.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-key.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-keystore.Po
@@ -8593,8 +8550,6 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo
-	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo
-	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-hash.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-pubkey.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-uint256.Plo
@@ -8783,6 +8738,7 @@ distclean: distclean-recursive
 	-rm -f test/$(DEPDIR)/test_syndicate-base58_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-base64_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-benchmark_zerocoin.Po
+	-rm -f test/$(DEPDIR)/test_syndicate-budget_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-checkblock_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-coins_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-compress_tests.Po
@@ -8881,8 +8837,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-compressor.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-core_read.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-core_write.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_common_a-eccryptoverify.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_common_a-ecwrapper.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-hash.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-key.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_common_a-keystore.Po
@@ -8954,8 +8908,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo
-	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo
-	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-hash.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-pubkey.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-uint256.Plo
@@ -9144,6 +9096,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f test/$(DEPDIR)/test_syndicate-base58_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-base64_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-benchmark_zerocoin.Po
+	-rm -f test/$(DEPDIR)/test_syndicate-budget_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-checkblock_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-coins_tests.Po
 	-rm -f test/$(DEPDIR)/test_syndicate-compress_tests.Po

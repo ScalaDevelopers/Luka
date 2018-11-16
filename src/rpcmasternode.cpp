@@ -465,8 +465,8 @@ UniValue masternodedebug (const UniValue& params, bool fHelp)
         return activeMasternode.GetStatus();
 
     CTxIn vin = CTxIn();
-    CPubKey pubkey = CScript();
-    CKey key;
+     CPubKey pubkey;
+     CKey key;
     if (!activeMasternode.GetMasterNodeVin(vin, pubkey, key))
         throw runtime_error("Missing masternode input, please look at the documentation for instructions on masternode creation\n");
     else
